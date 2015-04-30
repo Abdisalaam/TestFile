@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head
+<title> hello world</title>
+</head>
+<body> 
+<h1>Welkom</h1>
+
+<button id="cameraAan">Camera</button>
+<button id="leeg">Cleare</button>
+<div id="results"></div>
+<script src="js/zepto.js"></script>
+<script src="js/cameraAan.js"></script>
+<script>
+$('#cameraAan').click(function(){
+   SILLY.DoIt($('#results'));
+});
+
+$('#leeg').click(function(){
+$('#results').html('');
+});
+</script>
+</body>
+</html>
