@@ -20,7 +20,7 @@
   
         <div id="app">
 	   	   <img src="" id="myImage" width="80"></img> </br>
-			<div id="accel"></div>
+			<div id="locatie"></div>
 			<span id="battery"></span>
 				
 			<div id="deviceready">
@@ -35,15 +35,15 @@
        <footer>
 	 <ul id="tab-bar">
     <li>
-       <button id="geolocation">Zoekt Locatie</button>
+       <button id="geolocation" onclick="waarBenIk();">Locatie</button>
     </li>
  
     <li>
-        <button id="cameraAanZett" onclick="maakFoto()">Camera</button>
+        <button id="cameraAanZett" onclick="maakFoto();">Camera</button>
     </li>
  
     <li>
-       <button id="acceleratorge">Accelerator</button>
+       <button id="tostel" onclick="toestelInfo();">Toestel informatie</button>
     </li>
     </ul>
 
@@ -52,8 +52,30 @@
 <script type="text/javascript" src="PhoneGap.js"></script>
  <script src="js/cameraAan.js"></script>
 <script>
-window.onload = function() {
-	
+  function waarBenIk() {
+
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+             
+            function success(position) {
+			
+                var element = document.getElementById('locatie');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
+                'Longitude: '           + position.coords.longitude             + '<br />' +
+                'Altitude: '            + position.coords.altitude              + '<br />' +
+                'Accuracy: '            + position.coords.accuracy              + '<br />' +
+                'Altitude Accuracy: '   + position.coords.altitudeAccuracy      + '<br />' +
+                'Heading: '             + position.coords.heading               + '<br />' +
+                'Speed: '               + position.coords.speed                 + '<br />' +
+                'Timestamp: '           + new Date(position.timestamp)          + '<br />';
+            }
+             
+            function error(error) {
+                alert(error.message);
+            }
+
+ function  toestelInfo() {
+	alert('toestel');
 	document.addEventListener("deviceready", onDeviceReady, false);
 	document.addEventListener("batterystatus", onBatteryStatus, false);
 	function onDeviceReady() {
@@ -78,7 +100,7 @@ window.onload = function() {
 	}
 }
 function maakFoto() {
-
+alert("hhsh");
 	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinatioType.DATA_URL});
 	function onSuccess(imageData) {
 		var image = document.getElementById('myImage');
