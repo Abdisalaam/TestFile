@@ -14,19 +14,18 @@
     <body>
         
 				
-		 <header>
+
             <h1>DCM</h1>
-         </header>
+      
   
         <div id="app">
 	   	   <img src="" id="myImage" width="80"></img> </br>
 			<div id="accel"></div>
 			<span id="battery"></span>
-			</br>
-			
+				
 			<div id="deviceready">
-			<p class="event listening">Loading</p>
-			<p class="event received">Apparaat is klaar</p>
+			<p class="eventlistening">Loading</p>
+			<p class="eventreceived">Apparaat is klaar</p>
 			<p id="info"></p>			
 			</div>
    
@@ -40,7 +39,7 @@
     </li>
  
     <li>
-        <button id="cameraAan">Camera</button>
+        <button id="cameraAanZett" onclick="maakFoto()">Camera</button>
     </li>
  
     <li>
@@ -52,7 +51,49 @@
       </footer>
 <script type="text/javascript" src="PhoneGap.js"></script>
  <script src="js/cameraAan.js"></script>
+<script>
+window.onload = function() {
 	
+	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("batterystatus", onBatteryStatus, false);
+	function onDeviceReady() {
+		var parentElement = document.getElementById("deviceready");
+		var listeningElement = parentElement.querySelector('.eventlistening');
+		var receivedElement = parentElement.querySelector('.eventreceived');
+		
+		listeningElement.setAttribute('style', 'display:none;');
+		receivedElement.setAttribute('style', 'display:block;');
+		
+		$("#info").html('Applicatie Versie: '+device.cordova+'<br/>');
+		$("#info").append('Toestel model: '+device.model+'<br/>');
+		$("#info").append('Besturing systeem: '+device.platform+' '+ device.version+'<br/>');
+		
+	
+	}
+	function onBatteryStatus(info) {
+		
+		$("#battery").html('Level: ' +info.level + '<br/> isPlugged: ' + info.isPlugged);
+		
+	
+	}
+}
+function maakFoto() {
+
+	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinatioType.DATA_URL});
+	function onSuccess(imageData) {
+		var image = document.getElementById('myImage');
+		image.src = "data:image/jpg;base64," + imageData;
+		console.log("image updated");
+			}
+	function onFail(message) {
+		
+		console.log('Error omdat: ' + message);
+			}
+			
+	}
+	
+	
+</script>
     </body>
 </html>
 
