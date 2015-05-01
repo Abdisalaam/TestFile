@@ -5,16 +5,58 @@ html, body{
 }
  
 body {
- font-family:Arial,  sans-serif;
- line-height:1.5;
- font-size:16px;
- background: #fff;
- padding:5px;
- color: #000;
- word-wrap: break-word;
- -webkit-text-size-adjust: none;
-}
  
+ -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+   -webkit-user-select: none;
+   background-color:#E4E4E4;
+   background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+      background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+	     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+		    background-image:-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			color-stop(0, #A7A7A7),
+			color-stop(0.51, #E4E4E4));
+			background-attachment:fixed; 
+			font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+			font-size:12px;
+			height:100%;
+			text-text-transform:uppercase;
+			width: 100%;
+   
+}
+.event {
+border-radius:4px;
+-webkit-border-radius:4px;
+color:#FFFFFF;
+font-size:12px;
+margin:0px 30px;
+padding:2px 0px;
+}
+ .event.listening {
+ background-color:#333333;
+ display:block;
+ }
+ .event.received {
+ background-color:#4B946A;
+ display:none;
+ }
+ #app {
+ text-align:center;
+ }
+ @keyframes fade {
+ from {opacity: 1.0;}
+  50% {opacity: 0.4;}
+   to {opacity: 1.0;}
+ }
+ 
+ @-webkit-keyframes fade {
+ from {opacity: 1.0;}
+  50% {opacity: 0.4;}
+   to {opacity: 1.0;}
+ }
 h1, h2, h3, h4, h5, h6{ font-weight: normal; }
  
 p img { float: left; margin: 0 10px 5px 0; padding: 0; }
@@ -23,9 +65,7 @@ img { border: 0; max-width: 100%; }
 
 /*  Main Styles */
  
-body{
-    background: white;
-}
+
  
 header{
     top:0; left:0;
@@ -58,20 +98,6 @@ h1{
     text-transform: uppercase;
 }
  
-#wrapper {
-    position:absolute;
-    z-index:1;
-    top:45px; bottom:48px; left:0;
-    width:100%;
-    overflow:auto;
-}
-  
-#main-content {
-    position:absolute;
-    z-index:1;
-    width:100%;
-    padding:0;
-}
 
 #tab-bar{
     margin:0;
@@ -83,46 +109,3 @@ h1{
     float:left;  
     width: 33.333%;
 }
- 
-#pages > div {
-    display: none;
-}
- 
-#pages > div.current {
-    display: block;
-}
-#pages{
-    position:relative;
-}
- 
- 
-/* Update this style */
- 
-#pages > div {
-    display: none;
-    position: absolute;
-    top:0;left:0;
-    width:100%;
-}
-
-
-
-.in, .out { 
-    -webkit-animation-timing-function: ease-in-out; 
-    -webkit-animation-duration: 400ms;
-}
-@-webkit-keyframes fade-in { 
-    from { opacity: 0; } to { opacity: 1; }
-}
-.fade.in { 
-    -webkit-animation-name: fade-in; 
-    z-index: 5;
-} 
- 
-.fade.out {
-    z-index: 0;
-}
-
-
-
-
