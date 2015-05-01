@@ -24,8 +24,8 @@
 			<span id="battery"></span>
 				
 			<div id="deviceready">
-			<p class="eventlistening">Loading</p>
-			<p class="eventreceived">Apparaat is klaar</p>
+			<p class="event listening">Loading</p>
+			<p class="event received">Apparaat is klaar</p>
 			<p id="info"></p>			
 			</div>
    
@@ -75,7 +75,7 @@
             }
 
  function  toestelInfo() {
-	
+
 	document.addEventListener("deviceready", onDeviceReady, false);
 	document.addEventListener("batterystatus", onBatteryStatus, false);
 	function onDeviceReady() {
@@ -100,7 +100,8 @@
 	}
 }
 function maakFoto() {
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinatioType.DATA_URL});
+
+	navigator.camera.getPicture(onSuccess, onFail, { quality: 50});
 	function onSuccess(imageData) {
 		var image = document.getElementById('myImage');
 		image.src = "data:image/jpg;base64," + imageData;
