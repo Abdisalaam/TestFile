@@ -23,7 +23,7 @@ body {
 			font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
 			font-size:12px;
 			height:100%;
-			text-text-transform:uppercase;
+			text-transform:uppercase;
 			width: 100%;
    
 }
@@ -31,19 +31,24 @@ body {
 border-radius:4px;
 -webkit-border-radius:4px;
 color:#FFFFFF;
-font-size:12px;
+font-size:40px;
 margin:0px 30px;
 padding:2px 0px;
 }
- .eventlistening {
+ .event .listening {
  background-color:#333333;
  display:block;
  }
- .eventreceived {
+ .event .received {
  background-color:#4B946A;
  display:none;
  }
  #app {
+ padding-top:20%;
+ font-size:20px;
+ font-weight:normal;
+ margin:0px;
+ overflow:visible;
  text-align:center;
  }
  @keyframes fade {
@@ -79,7 +84,7 @@ h1, footer{
     padding:0;
     position:absolute;
     z-index:2;
-    font-size:20px;
+    font-size:40px;
     width:100%;
     text-align:center;
     color:#f3f3f3;
