@@ -36,8 +36,7 @@
     <preference name="phonegap-version" value="3.7.0" /> 
     <preference name="orientation" value="default" /> 
     <preference name="fullscreen" value="true" /> <!-- remove the upper bar on iOS and Android --> 
-    <preference name="DisallowOverscroll" value="true"/>
-	<preference name="BackgroundColor" value="0xff0000ff"/>
+
     <!-- iOS PREFERENCES --> 
      
     <preference name="target-device" value="universal" /> 
