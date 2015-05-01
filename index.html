@@ -1,24 +1,101 @@
-<!doctype html>
-<html>
-<head
-<title> hello world</title>
-</head>
-<body> 
-<h1>Welkom</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<button id="cameraAan">Camera</button>
-<button id="leeg">Cleare</button>
-<div id="results"></div>
-<script src="js/zepto.js"></script>
-<script src="js/cameraAan.js"></script>
-<script>
-$('#cameraAan').click(function(){
-   SILLY.DoIt($('#results'));
-});
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
 
-$('#leeg').click(function(){
-$('#results').html('');
-});
-</script>
-</body>
+        <title>DCMTest</title>
+		 <link rel="stylesheet" href="css/styles.css">
+
+         
+        <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
+		<script src="js/iscroll-lite.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/camfunctie.js"></script>
+		<script src="js/geolocatie.js"></script>
+		<script src="js/accelratorfunctie.js"></script>
+        <script type="text/javascript" charset="utf-8">
+		
+		
+        $('#tab-bar a').on('click', function(e){
+           e.preventDefault();
+           var nextPage = $(e.target.hash); 
+             $("#pages .current").removeClass("current"); 
+           nextPage.addClass("current");
+         });
+
+	function page(toPage) { 
+    var toPage = $(toPage),
+    fromPage = $("#pages .current");
+    if(toPage.hasClass("current") || toPage === fromPage) { 
+        return;
+    };
+    toPage.addClass("current fade in").one("webkitAnimationEnd", function(){
+        fromPage.removeClass("current fade out");
+        toPage.removeClass("fade in") 
+    });
+    fromPage.addClass("fade out");
+}
+
+
+		   </script>
+		   
+		   
+		
+    
+	</head>
+    <body>
+        
+				
+		 <header>
+            <h1>DCM</h1>
+         </header>
+  
+       <div id="wrapper">
+	   	   
+       <div id="main-content">
+         
+		
+	<div id="pages">
+   
+    <div id="gelocatie" class="current">
+	<p id="geolocation">Finding geolocation...</p>
+    </div>
+	
+	 <div id="cameragedeelte">
+		 <button onclick="capturePhoto();">Capture Photo</button> </br>
+        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />  
+
+    </div>
+    <div id="acceleratorge">
+		
+		 <button onclick="startWatch();">Capture Photo</button> </br>
+		
+    </div>
+    </div>
+
+      </div>
+     </div>
+  
+       <footer>
+	 <ul id="tab-bar">
+    <li>
+        <a href="#gelocatie">Map</a>
+    </li>
+ 
+    <li>
+        <a href="#cameragedeelte">Camera</a>
+    </li>
+ 
+    <li>
+        <a href="#acceleratorge">Accelerator</a>
+    </li>
+</ul>
+
+     
+      </footer>
+
+	
+    </body>
 </html>
