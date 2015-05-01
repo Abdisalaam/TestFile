@@ -9,41 +9,7 @@
 		 <link rel="stylesheet" href="css/styles.css">
 
          
-        <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
-		<script src="js/iscroll-lite.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/camfunctie.js"></script>
-		<script src="js/geolocatie.js"></script>
-		<script src="js/accelratorfunctie.js"></script>
-        <script type="text/javascript" charset="utf-8">
-		
-		
-        $('#tab-bar a').on('click', function(e){
-           e.preventDefault();
-           var nextPage = $(e.target.hash); 
-             $("#pages .current").removeClass("current"); 
-           nextPage.addClass("current");
-         });
-
-	function page(toPage) { 
-    var toPage = $(toPage),
-    fromPage = $("#pages .current");
-    if(toPage.hasClass("current") || toPage === fromPage) { 
-        return;
-    };
-    toPage.addClass("current fade in").one("webkitAnimationEnd", function(){
-        fromPage.removeClass("current fade out");
-        toPage.removeClass("fade in") 
-    });
-    fromPage.addClass("fade out");
-}
-
-
-		   </script>
-		   
-		   
-		
-    
+       
 	</head>
     <body>
         
@@ -95,7 +61,41 @@
 
      
       </footer>
+ <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
+		<script src="js/iscroll-lite.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/camfunctie.js"></script>
+		<script src="js/geolocatie.js"></script>
+		<script src="js/accelratorfunctie.js"></script>
+        <script type="text/javascript" charset="utf-8">
+		
+		
+        $('#tab-bar a').on('click', function(e){
+           e.preventDefault();
+           var nextPage = $(e.target.hash); 
+             $("#pages .current").removeClass("current"); 
+           nextPage.addClass("current");
+         });
 
+	function page(toPage) { 
+    var toPage = $(toPage),
+    fromPage = $("#pages .current");
+    if(toPage.hasClass("current") || toPage === fromPage) { 
+        return;
+    };
+    toPage.addClass("current fade in").one("webkitAnimationEnd", function(){
+        fromPage.removeClass("current fade out");
+        toPage.removeClass("fade in") 
+    });
+    fromPage.addClass("fade out");
+}
+
+
+		   </script>
+		   
+		   
+		
+    
 	
     </body>
 </html>
