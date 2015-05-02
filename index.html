@@ -35,8 +35,17 @@
 
         destinationType = navigator.camera.DestinationType;
       
-        
     }
+    function toestelInfo() {
+    var element = document.getElementById('info');
+
+    element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+                        'Device PhoneGap: ' + device.phonegap + '<br />' + 
+                        'Device Platform: ' + device.platform + '<br />' + 
+                        'Device UUID: '     + device.uuid     + '<br />' + 
+                        'Device Version: '  + device.version  + '<br />';
+}
+
 
     // Called when a photo is successfully retrieved
 
@@ -113,6 +122,7 @@
             function error(error) {
                 alert(error.message);
             }
+            
 
     </script>
 
@@ -125,7 +135,7 @@
   	<div id="content">
   	
   	<div id ="fotoPlaats">
-  		 <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+  		 <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
   	</div>
   <div id="locatiePlaats">
   		 <p id="locatie"></p>
