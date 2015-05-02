@@ -55,9 +55,7 @@ $(document).ready(function(){
     </li>
      <li><a href="#" id="fromPhotoLibraryButton">From Photo Library</a></li>
  
-    <li>
-       <button id="tostel" onclick="toestelInfo();">Toestel informatie</button>
-    </li>
+    
     </ul>
     
 
@@ -73,7 +71,7 @@ $(document).ready(function(){
              
             function success(position) {
 			
-                var element = document.getElementById('locatie');
+                var element = document.getElementById('info');
                 element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
                 'Longitude: '           + position.coords.longitude             + '<br />' +
                 'Altitude: '            + position.coords.altitude              + '<br />' +
