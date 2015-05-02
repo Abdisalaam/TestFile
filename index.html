@@ -9,45 +9,25 @@
 	 <script src="js/jquery-2.1.1.min.js"></script>
    <script type="text/javascript"> 
 
-$(document).ready(function(e){
-    $("#capturePhoneButton").click(function(){
-    	 e.preventDefault();
-         capturePhoto();
-          return false;
+$(document).ready(function(){
+	getCameraReady();
+   
     });
-      $("#fromPhotoLibraryButton'").click(function(){
-    	 e.preventDefault();
-          getPhoto(pictureSource.PHOTOLIBRARY);
-            return false;
-    });
-    
-});
+   
  </script>
      <title>DCMTest</title>
         
 	</head>
     <body>
-            <h1>DCM</h1>
+            <h1>DCM Camera, locatie en device</h1>
         
         <div data-role="page" id="cameraMainPage" data-add-back-btn="true" back-btn-text="back">
 
-       <div data-role="header">
-
-            <h1>Camera</h1>
-
-     </div>
       <div data-role="content">
 
-       <ul data-role="listview" data-inset="true">
+       <div class="mesgBox">
 
-       <li><a href="#" id="capturePhoneButton">Capture Photo</a></li>
-         <li><a href="#" id="fromPhotoLibraryButton">From Photo Library</a></li>
-
-        </ul>
-
-    <div class="mesgBox">
-
-        	<p id="info"></p>
+      	<p id="info"></p>
            </div>
 
            <div data-role="popup" id="popupPhoto" class="ui-content" data-theme="e" data-corners="false">
@@ -61,25 +41,9 @@ $(document).ready(function(e){
                 <img class="popphoto" id="popImage" src="">
 
            </div>
-
+     <div id="cameraStatus"></div>
       </div>
-
-      <div data-role="footer">
-
-          <div id="cameraStatus"></div>
-
-      </div>
-
    </div>
-   <ul data-role="listview" data-inset="true">                
-
-<li><a href="#" id="capturePhoneButton">Capture Photo</a></li>
-
-<li><a href="#" id="fromPhotoLibraryButton">From Photo Library</a></li>
-
-</ul>
-
-
        <footer>
 	 <ul id="tab-bar">
     <li>
@@ -100,7 +64,7 @@ $(document).ready(function(e){
      
       </footer>
 <script type="text/javascript" src="PhoneGap.js"></script>
- <script src="js/cameraAan.js"></script>
+ <script src="js/jquery-2.1.1.min.js"></script>
 <script>
   function waarBenIk() {
 
