@@ -7,28 +7,7 @@
 	 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
      <link rel="stylesheet" type="text/css" href="css/styles.css">
 	 <script src="js/jquery-2.1.1.min.js"></script>
-   <script type="text/javascript"> 
-	 var pictureSource;
-        var destinationType;
-$(document).ready(function(){
-	document.addEventListener('deviceready', onDeviceReady, false);
-	 function onDeviceReady(){
-            navigator.camera.getPicture(onSuccess, onFail, {quality:20, destinationType: Camera.DestinationType.FILE_URI
-});
-            function onSuccess(imageData){
-                var image=document.getElementById('popImage');
-                image.src='data:image/jpeg;base64,'+imageData;
-            }
-            function onFail(message){
-                alert(message);
-            }
-    }
-
-
-   
-    });
-   
- </script>
+  
      <title>DCMTest</title>
         
 	</head>
