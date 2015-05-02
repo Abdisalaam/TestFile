@@ -17,6 +17,8 @@
     var pictureSource;   // picture source
 
     var destinationType; // sets the format of returned value 
+    var phoneName; 
+
 
 
 
@@ -37,7 +39,8 @@
         pictureSource=navigator.camera.PictureSourceType;
 
         destinationType=navigator.camera.DestinationType;
-
+         phoneName = window.device.name;
+        
     }
 
 
@@ -165,8 +168,12 @@
       // Take picture using device camera and retrieve image as base64-encoded string
 
      
-      
-    navigator.camera.getPicture(onPhotoDataSuccess,null,{sourceType:1,quality:60});
+     alert(phoneName);
+
+      var test =   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20,
+                   destinationType: Camera.DestinationType.DATA_URL});
+
+
 
        alert('ik ben capturePhotoWithDataMethode: ');
 
@@ -176,7 +183,7 @@
 
     function capturePhotoWithFile() {
 				
-        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 20, destinationType: Camera.DestinationType.FILE_URI });
 		 alert('ik ben capturePhotoWithFileMethode: ');
    
     }
@@ -190,16 +197,18 @@
     function getPhoto(source) {
 
       // Retrieve image file location from specified source
-
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+       alert(phoneName);
+	 
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 20, 
 
         destinationType: destinationType.FILE_URI,
 
-        sourceType: source });`
+        sourceType: source });
+        
 	 alert('ik ben capturePhotoWithFileMethode: ');
 
-    }
 
+           }
 
 
     // Called if something bad happens.
