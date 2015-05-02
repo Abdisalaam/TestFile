@@ -31,9 +31,10 @@
     </li>
  
     <li>
-        <li><a href="#" id="capturePhoneButton">Capture Photo</a></li>
+    	<button id="capturePhoneButton" onclick="neemFoto();">Camera</button>
+        
     </li>
-     <li><a href="#" id="fromPhotoLibraryButton">From Photo Library</a></li>
+     <li><button id="apparaatDetail" onclick="neemFoto();">Apaaraat</button></li>
  
     </ul>
       </footer>
@@ -41,6 +42,20 @@
 <script type="text/javascript" src="cordova.js"></script>
  <script src="js/jquery-2.1.1.min.js"></script>
 <script>
+        function captureSuccess(mediaFiles) {
+            navigator.notification.alert('Success taking picture:');
+        }        
+        function captureError(mediaFiles) {
+            navigator.notification.alert('Error taking picture: ' + error.code);
+        }
+          function neemFoto() {
+             navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 1});
+        }
+        $(document).bind("deviceready",function () {
+            $("#capturePhoneButton").bind("tap", function() {
+                navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 1});
+            });
+        });
   function waarBenIk() {
 
                 navigator.geolocation.getCurrentPosition(success, error);
