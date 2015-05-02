@@ -1,90 +1,232 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-	<meta charset="utf-8"/>
-	 <meta name="format-detection" content="telephone=no" />
-	 <meta name="msapplication-tap-highlight" content="no" />
-	 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
-     <link rel="stylesheet" type="text/css" href="css/styles.css">
-	 <script src="js/jquery-2.1.1.min.js"></script>
-         <script src="js/cameraAan.js"></script>
-     <title>DCMTest</title>
-        
-	</head>
-    <body>
-    		 <header>
-    		 	<h1>DCM Camera, locatie en device</h1>
-    		 </header>
-    		 
-    	<div>
-    	
-              <img class="popphoto" id="myImage" src="">
-            	<p id="info"></p>
-    	</div>
-           
-            	
-   
-       <footer>
-	 <ul id="tab-bar">
-    <li>
-       <button id="geolocation" onclick="waarBenIk();">Locatie</button>
-    </li>
- 
-    <li>
-    	<button id="capturePhoneButton" onclick="neemFoto();">Camera</button>
-        
-    </li>
-     <li><button id="apparaatDetail" onclick="neemFoto();">Apaaraat</button></li>
- 
-    </ul>
-      </footer>
-<script type="text/javascript" src="PhoneGap.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
- <script src="js/jquery-2.1.1.min.js"></script>
-<script>
 
-        document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    console.log(navigator.camera);
-}
-function neemFoto(){
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-    destinationType: Camera.DestinationType.DATA_URL
-});
+  <head>
 
-function onSuccess(imageData) {
-    var image = document.getElementById('myImage');
-    image.src = "data:image/jpeg;base64," + imageData;
-}
+    <title>Capture Photo</title>
 
-function onFail(message) {
-    alert('Failed because: ' + message);
-}
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"/>
 
-}
-  function waarBenIk() {
+    <script type="text/javascript" charset="utf-8" src="js/phonegap.js"></script>
 
-                navigator.geolocation.getCurrentPosition(success, error);
-            }
-             
-            function success(position) {
-			
-                var element = document.getElementById('info');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
-                'Longitude: '           + position.coords.longitude             + '<br />' +
-                'Altitude: '            + position.coords.altitude              + '<br />' +
-                'Accuracy: '            + position.coords.accuracy              + '<br />' +
-                'Altitude Accuracy: '   + position.coords.altitudeAccuracy      + '<br />' +
-                'Heading: '             + position.coords.heading               + '<br />' +
-                'Speed: '               + position.coords.speed                 + '<br />' +
-                'Timestamp: '           + new Date(position.timestamp)          + '<br />';
-            }
-             
-            function error(error) {
-                alert(error.message);
-            }
-  
-</script>
-    </body>
+    <script type="text/javascript" charset="utf-8">
+
+
+
+    var pictureSource;   // picture source
+
+    var destinationType; // sets the format of returned value 
+
+
+
+    // Wait for PhoneGap to connect with the device
+
+    //
+
+    document.addEventListener("deviceready",onDeviceReady,false);
+
+
+
+    // PhoneGap is ready to be used!
+
+    //
+
+    function onDeviceReady() {
+
+        pictureSource=navigator.camera.PictureSourceType;
+
+        destinationType=navigator.camera.DestinationType;
+
+    }
+
+
+
+    // Called when a photo is successfully retrieved
+
+    //
+
+    function onPhotoDataSuccess(imageData) {
+
+      // Get image handle
+
+      //
+
+      var smallImage = document.getElementById('smallImage');
+
+
+
+      // Unhide image elements
+
+      //
+
+      smallImage.style.display = 'block';
+
+
+
+      // Show the captured photo
+
+      // The inline CSS rules are used to resize the image
+
+      //
+
+      smallImage.src = "data:image/jpeg;base64," + imageData;
+
+    }
+
+    
+
+	// Called when a photo is successfully retrieved
+
+    //
+
+    function onPhotoFileSuccess(imageData) {
+
+      // Get image handle
+
+      console.log(JSON.stringify(imageData));
+
+      
+
+   	  // Get image handle
+
+      //
+
+      var smallImage = document.getElementById('smallImage');
+
+
+
+      // Unhide image elements
+
+      //
+
+      smallImage.style.display = 'block';
+
+
+
+      // Show the captured photo
+
+      // The inline CSS rules are used to resize the image
+
+      //
+
+      smallImage.src = imageData;
+
+    }
+
+
+
+    // Called when a photo is successfully retrieved
+
+    //
+
+    function onPhotoURISuccess(imageURI) {
+
+      // Uncomment to view the image file URI 
+
+      // console.log(imageURI);
+
+
+
+      // Get image handle
+
+      //
+
+      var largeImage = document.getElementById('largeImage');
+
+
+
+      // Unhide image elements
+
+      //
+
+      largeImage.style.display = 'block';
+
+
+
+      // Show the captured photo
+
+      // The inline CSS rules are used to resize the image
+
+      //
+
+      largeImage.src = imageURI;
+
+    }
+
+
+
+    // A button will call this function
+
+    //
+
+    function capturePhotoWithData() {
+
+      // Take picture using device camera and retrieve image as base64-encoded string
+
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+
+    }
+
+
+
+    function capturePhotoWithFile() {
+
+        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+
+    }
+
+    
+
+    // A button will call this function
+
+    //
+
+    function getPhoto(source) {
+
+      // Retrieve image file location from specified source
+
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+
+        destinationType: destinationType.FILE_URI,
+
+        sourceType: source });
+
+    }
+
+
+
+    // Called if something bad happens.
+
+    // 
+
+    function onFail(message) {
+
+      alert('Failed because: ' + message);
+
+    }
+
+
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
+
+    <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
+
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+
+    <img style="display:none;" id="largeImage" src="" />
+
+  </body>
+
 </html>
 
