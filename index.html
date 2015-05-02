@@ -11,34 +11,19 @@
 	 var pictureSource;
         var destinationType;
 $(document).ready(function(){
+	document.addEventListener('deviceready', onDeviceReady, false);
+	 function onDeviceReady(){
+            navigator.camera.getPicture(onSuccess, onFail, {quality:20});
+            function onSuccess(imageData){
+                var image=document.getElementById('popImage');
+                image.src='data:image/jpeg;base64,'+imageData;
+            }
+            function onFail(message){
+                alert(message);
+            }
+    }
 
-	 $("popupPhoto").popup("close");     
 
-      updateCameraStatus(" ");
-
-       pictureSource   = navigator.camera.PictureSourceType;
-       destinationType = navigator.camera.DestinationType;
-$('#capturePhoneButton').on('click', function(e) {
-
-           e.preventDefault();
-
-           capturePhoto();
-
-          return false;
-
-      });
-
-       
-
-       $('#fromPhotoLibraryButton').on('click', function(e){
-
-           e.preventDefault();
-
-           getPhoto(pictureSource.PHOTOLIBRARY);
-
-           return false;
-
-        });
    
     });
    
@@ -117,60 +102,8 @@ $('#capturePhoneButton').on('click', function(e) {
 
   
    
-   function updateCameraStatus(status) {
-       $("#cameraStatus").html(status);
-
-    }
-
-   
-
-  function photoOnFail(message) {
-      updateCameraStatus("ERROR: " + message);
-  }
-
-
-   function onPhotoDataSuccess(imageData) {
-
-       $("#popImage").attr("src", "data:image/jpeg;base64," + imageData);
-
-       $("#popupPhoto").popup("open");
-
-   }
- 
-
-  function onPhotoURISuccess(imageURI) {
-
-    $("#popImage").attr("src", imageURI);
-        //$("#pictBox").empty();
-
-       //$("#pictBox").append(imageURI).trigger("create");
-
-        $("#pictBox").html(imageURI);
-
-        updateCameraStatus("SUCCESS: Image loaded");
-
-       $("#popupPhoto").popup("open");
-
-   }
-
-
-    function capturePhoto() {
-
-       navigator.camera.getPicture(onPhotoURISuccess, photoOnFail, { quality: 50, destinationType: destinationType.FILE_URI });
-
-   }
- function capturePhotoEdit() {   
-    navigator.camera.getPicture(onPhotoDataSuccess, photoOnFail, { quality: 20, allowEdit: true, destinationType: destinationType.DATA_URL });
-  }
- function getPhoto(source) {
-      updateCameraStatus("");        
-
-        navigator.camera.getPicture(onPhotoURISuccess, photoOnFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
-  }
-
-
-
-	
+  
+  
 </script>
     </body>
 </html>
