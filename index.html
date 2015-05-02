@@ -17,7 +17,7 @@
     var pictureSource;   // picture source
 
     var destinationType; // sets the format of returned value 
-    var phoneName; 
+    var phoneName =  window.device.name;
 
 
 
@@ -39,7 +39,7 @@
         pictureSource=navigator.camera.PictureSourceType;
 
         destinationType=navigator.camera.DestinationType;
-         phoneName = window.device.name;
+      
         
     }
 
@@ -127,7 +127,7 @@
 
       // Uncomment to view the image file URI 
 
-      // console.log(imageURI);
+       console.log(imageURI);
 
 
 
@@ -167,7 +167,7 @@
 			
       // Take picture using device camera and retrieve image as base64-encoded string
 
-     
+      var phoneName =  window.device.name;
      alert(phoneName);
 
       var test =   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20,
