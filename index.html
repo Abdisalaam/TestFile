@@ -7,6 +7,7 @@
     <title>Capture Photo</title>
 
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"/>
+     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
@@ -91,6 +92,27 @@
       alert('Niet gelukt omdat ' + message);
 
     }
+     function waarBenIk() {
+
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+             
+            function success(position) {
+			
+                var element = document.getElementById('locatie');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
+                'Longitude: '           + position.coords.longitude             + '<br />' +
+                'Altitude: '            + position.coords.altitude              + '<br />' +
+                'Accuracy: '            + position.coords.accuracy              + '<br />' +
+                'Altitude Accuracy: '   + position.coords.altitudeAccuracy      + '<br />' +
+                'Heading: '             + position.coords.heading               + '<br />' +
+                'Speed: '               + position.coords.speed                 + '<br />' +
+                'Timestamp: '           + new Date(position.timestamp)          + '<br />';
+            }
+             
+            function error(error) {
+                alert(error.message);
+            }
 
     </script>
 
@@ -100,29 +122,33 @@
   	<header>
   		<h1>DCM</h1>
   	</header>
-  	<div>
+  	<div id="content">
+  	
+  	<div id ="fotoPlaats">
   		 <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
   	</div>
-  
+  <div id="locatiePlaats">
+  		 <p id="locatie"></p>
+  	</div>
+  	<div id="toestel">
+  		 <p id="info"></p>
+  	</div>
+  	</div>
   <footer>
 	 <ul id="tab-bar">
     <li>
-       <button id="geolocation" onclick="waarBenIk();">Locatie</button>
+       <button id="geolocatie" onclick="waarBenIk();">Locatie</button>
     </li>
  
     <li>
-          <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
+          <button id="cameraButon" onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
     </li>
  
     <li>
-       <button id="tostel" onclick="toestelInfo();">Toestel informatie</button>
+       <button id="tostel" onclick="toestelInfo();">Toestel</button>
     </li>
     </ul>
-
-     
       </footer>
-   
-
   </body>
 
 </html>
