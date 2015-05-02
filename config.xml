@@ -58,6 +58,10 @@
     <preference name="permissions" value="none"/> 
    
     <feature name="http://api.phonegap.com/1.0/battery"/> 
+    <feature name="Camera">
+    <param name="android-package" value="org.apache.cordova.CameraLauncher" />
+</feature>
+
     <feature name="http://api.phonegap.com/1.0/camera"/> 
     <feature name="http://api.phonegap.com/1.0/contacts"/> 
     <feature name="http://api.phonegap.com/1.0/file"/> 
