@@ -7,36 +7,23 @@
 	 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
      <link rel="stylesheet" type="text/css" href="css/styles.css">
 	 <script src="js/jquery-2.1.1.min.js"></script>
-  
+         <script src="js/cameraAan.js"></script>
      <title>DCMTest</title>
         
 	</head>
     <body>
-            <h1>DCM Camera, locatie en device</h1>
-        
-        <div data-role="page" id="cameraMainPage" data-add-back-btn="true" back-btn-text="back">
-
-      <div data-role="content">
-
-       <div class="mesgBox">
-
-      	<p id="info"></p>
-           </div>
-
-           <div data-role="popup" id="popupPhoto" class="ui-content" data-theme="e" data-corners="false">
-
-              <h5 class="hlabel">Image URI</h5>
-
-                <p id="pictBox" class="content mesgBox"></p>
-
-              <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-
-                <img class="popphoto" id="popImage" src="">
-
-           </div>
-     <div id="cameraStatus"></div>
-      </div>
-   </div>
+    		 <header>
+    		 	<h1>DCM Camera, locatie en device</h1>
+    		 </header>
+    		 
+    	<div>
+    	
+              <img class="popphoto" id="popImage" src="">
+            	<p id="info"></p>
+    	</div>
+           
+            	
+   
        <footer>
 	 <ul id="tab-bar">
     <li>
@@ -48,11 +35,7 @@
     </li>
      <li><a href="#" id="fromPhotoLibraryButton">From Photo Library</a></li>
  
-    
     </ul>
-    
-
-     
       </footer>
 <script type="text/javascript" src="PhoneGap.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
