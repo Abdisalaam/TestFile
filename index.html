@@ -8,8 +8,13 @@
 	 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
      <link rel="stylesheet" type="text/css" href="css/styles.css">
 	 <script src="js/jquery-2.1.1.min.js"></script>
-	 <script> document.addEventListener("deviceready", onDeviceReady, false);
-	document.addEventListener("batterystatus", onBatteryStatus, false);</script>
+	 <script> window.onload = function()
+	 {
+	 	document.addEventListener("deviceready", toestelInfo, false);
+                document.addEventListener("batterystatus", onBatteryStatus, false);
+                	
+	 }
+	 </script>
      <title>DCMTest</title>
         
 	</head>
@@ -77,18 +82,20 @@
             }
 
  function  toestelInfo() {
+ 	onDeviceReady();
+ 	
+ }
 
 	function onDeviceReady() {
 		var parentElement = document.getElementById("deviceready");
-		var listeningElement = parentElement.querySelector('.eventlistening');
-		var receivedElement = parentElement.querySelector('.eventreceived');
+		var listeningElement = parentElement.querySelector('.listening');
+		var receivedElement = parentElement.querySelector('.received');
 		
 		listeningElement.setAttribute('style', 'display:none;');
 		receivedElement.setAttribute('style', 'display:block;');
 		
-		$("#info").html('Applicatie Versie: '+device.cordova+'<br/>');
-		$("#info").append('Toestel model: '+device.model+'<br/>');
-		$("#info").append('Besturing systeem: '+device.platform+' '+ device.version+'<br/>');
+		$("#info").html('Toestel model: '+device.model+'<br/>');
+		$("#info").append('Besturing systeem : '+device.platform+' '+ device.version+'<br/>');
 		
 	
 	}
@@ -98,10 +105,12 @@
 		
 	
 	}
-}
+
 function maakFoto() {
 
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 50});
+	var foto = function() {
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50});
+	}
 	function onSuccess(imageData) {
 		var image = document.getElementById('myImage');
 		image.src = "data:image/jpg;base64," + imageData;
