@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?> 
    <widget xmlns = "http://www.w3.org/ns/widgets"  
        xmlns:gap = "http://phonegap.com/ns/1.0" 
+       xmlns:android   = "http://schemas.android.com/apk/res/android"
 	id = "nlcom.nl.abdi" 
 	version = "1.0.0" 
-	versionCode = "1"> 
+	versionCode = "10"> 
 
 
    <name>DCM</name> 
@@ -33,7 +34,7 @@
          
     <!-- GENERAL PREFERENCES --> 
          
-    <preference name="phonegap-version" value="3.7.0" /> 
+    <preference name="phonegap-version" value="3.1.0" /> 
     <preference name="orientation" value="default" /> 
     <preference name="fullscreen" value="true" /> <!-- remove the upper bar on iOS and Android --> 
 
@@ -42,26 +43,18 @@
     <preference name="target-device" value="universal" /> 
     <preference name="prerendered-icon" value="true" /> 
     <preference name="ios-statusbarstyle" value="black-opaque" /> 
-    <preference name="detect-data-types" value="false" /> 
+    <preference name="detect-data-types" value="true" /> 
     <preference name="exit-on-suspend" value="false" /> 
 
-	
-    <preference name="webviewbounce" value="false" /> 
-    <preference name="stay-in-webview" value="false" /> 
-    <preference name="show-splash-screen-spinner" value="false" /> 
-    <preference name="auto-hide-splash-screen" value="true" /> <!-- if set to false, the splash screen must be hidden using a JavaScript API --> 
-         
+
     <!-- ANDROID PREFERENCES --> 
          
     <preference name="android-minSdkVersion" value="7" /> <!-- minimum Android 2.1 --> 
-   <preference name="android-maxSdkVersion" value="19" /> 
-   <preference name="android-installLocation" value="auto" /> 
+     <preference name="android-installLocation" value="auto" /> 
     <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" /> 
     <preference name="splash-screen-duration" value="5000" /> 
 
 
-    <preference name="load-url-timeout" value="20000" /> 
-         
     <!-- PHONEGAP API FEATURES PREFERENCES --> 
          
     <preference name="permissions" value="none"/> 
