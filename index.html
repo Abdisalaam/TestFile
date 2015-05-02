@@ -8,9 +8,37 @@
      <link rel="stylesheet" type="text/css" href="css/styles.css">
 	 <script src="js/jquery-2.1.1.min.js"></script>
    <script type="text/javascript"> 
-
+	 var pictureSource;
+        var destinationType;
 $(document).ready(function(){
-	getCameraReady();
+
+	 $("popupPhoto").popup("close");     
+
+      updateCameraStatus(" ");
+
+       pictureSource   = navigator.camera.PictureSourceType;
+       destinationType = navigator.camera.DestinationType;
+$('#capturePhoneButton').on('click', function(e) {
+
+           e.preventDefault();
+
+           capturePhoto();
+
+          return false;
+
+      });
+
+       
+
+       $('#fromPhotoLibraryButton').on('click', function(e){
+
+           e.preventDefault();
+
+           getPhoto(pictureSource.PHOTOLIBRARY);
+
+           return false;
+
+        });
    
     });
    
@@ -87,8 +115,7 @@ $(document).ready(function(){
             }
 
 
-   var pictureSource;
-   var destinationType;
+  
    
    function updateCameraStatus(status) {
        $("#cameraStatus").html(status);
@@ -140,39 +167,6 @@ $(document).ready(function(){
 
         navigator.camera.getPicture(onPhotoURISuccess, photoOnFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
   }
-
-function getCameraReady() {
-    $("popupPhoto").popup("close");     
-
-      updateCameraStatus("");
-
-     pictureSource   = navigator.camera.PictureSourceType;
-       destinationType = navigator.camera.DestinationType;
-$('#capturePhoneButton').on('vclick', function(e) {
-
-           e.preventDefault();
-
-           capturePhoto();
-
-          return false;
-
-      });
-
-       
-
-       $('#fromPhotoLibraryButton').on('vclick', function(e){
-
-           e.preventDefault();
-
-           getPhoto(pictureSource.PHOTOLIBRARY);
-
-           return false;
-
-        });
-   }
-
-
- $("#cameraMainPage").bind("pagebeforeshow", function() { getCameraReady(); } );
 
 
 
