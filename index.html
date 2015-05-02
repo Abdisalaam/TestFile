@@ -164,7 +164,10 @@
 			
       // Take picture using device camera and retrieve image as base64-encoded string
 
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+     
+      
+    navigator.camera.getPicture(onPhotoDataSuccess,null,{sourceType:1,quality:60});
+
        alert('ik ben capturePhotoWithDataMethode: ');
 
     }
@@ -216,6 +219,8 @@
   </head>
 
   <body>
+   <button class="camera-control" onclick="capturePhotoWithData();">Capture Photo</button><br>
+
 
     <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
 
