@@ -80,7 +80,7 @@ footer {
 }
   
 h1, footer{
-    background-color:#deb500;
+    background-color:red;
     padding:0;
     position:absolute;
     z-index:2;
