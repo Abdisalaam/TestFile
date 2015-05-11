@@ -23,7 +23,7 @@
 
 for(var i=0;i< myArray.length;i++)
 {
-  html += '<li id='+ i +'>' + '<a href="#" onClick="alert(i)">'+ 'Dit is test'+ i + ' waarde is' + myArray[i] +' </li> </a>';
+  html += '<li id='+ i +'>' + '<a href="#" onClick="toonIndex()">'+ 'Dit is test'+ i + ' waarde is' + myArray[i] +' </li> </a>';
 
 }
   html += "</ul>";
@@ -47,6 +47,11 @@ for(var i=0;i< myArray.length;i++)
 
       smallImage.style.display = 'block';
       smallImage.src = "data:image/jpeg;base64," + imageData;
+
+    }
+    function toonIndex() {
+
+     alert(this.id);
 
     }
     function maakFoto() {
