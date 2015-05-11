@@ -18,6 +18,20 @@
     function onDeviceReady() {
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
+        var myArray = [123, 15, 187, 32];
+
+        var html = "<ul>";
+
+for(i=0;i<myArray.length;i++)
+{
+  html += "<li id='"+ i +"'>Dit is test "+ i +" waarde is "+ myArray[i] +" </li>";
+  alert(html);
+
+}
+  html += "</ul>";
+  var res = document.getElementById("inhoudText");
+  res.innerHTML = html;
+	)}; 
     }
     function toestelInfo() {
     var element = document.getElementById('info');
@@ -69,6 +83,11 @@
   		<h1>DCM</h1>
   	</header>
   	<div id="content">
+  		<div id ="inhoud">
+  		 <p id ="inhoudText">
+  		 
+  		 </p>
+  	</div>
   	
   	<div id ="fotoPlaats">
   		 <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
