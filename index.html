@@ -18,20 +18,20 @@
     function onDeviceReady() {
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
-        var myArray = [123, 15, 187, 32];
+         var myArray = [123, 15, 187, 32];
+  var html = '<ul>';
 
-        var html = "<ul>";
-
-for(i=0;i<myArray.length;i++)
+for(var i=0;i< myArray.length;i++)
 {
-  html += "<li id='"+ i +"'>Dit is test "+ i +" waarde is "+ myArray[i] +" </li>";
-  alert(html);
+  html += '<li id='+ i +'>' + 'Dit is test'+ i + ' waarde is' + myArray[i] +' </li>';
+
 
 }
   html += "</ul>";
-  var res = document.getElementById("inhoudText");
+   var res = document.getElementById('inhoud');
+   alert(html);
   res.innerHTML = html;
-	)}; 
+       
     }
     function toestelInfo() {
     var element = document.getElementById('info');
@@ -84,9 +84,7 @@ for(i=0;i<myArray.length;i++)
   	</header>
   	<div id="content">
   		<div id ="inhoud">
-  		 <p id ="inhoudText">
-  		 
-  		 </p>
+  		
   	</div>
   	
   	<div id ="fotoPlaats">
