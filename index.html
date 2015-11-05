@@ -43,7 +43,7 @@ for(var i=0;i< myArray.length;i++)
 }
     function bijSucces(imageData) {
 
-      var smallImage = document.getElementById('inhoud');
+      var smallImage = document.getElementById('smallImage');
 
       smallImage.style.display = 'block';
       smallImage.src = "data:image/jpeg;base64," + imageData;
@@ -88,20 +88,15 @@ for(var i=0;i< myArray.length;i++)
   	</header>
   	<div id="content">
   		<div id ="inhoud">
-  			 <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
+  			
   		</div>
-  		
-  	</div>
-  	
-  	<div id ="fotoPlaats">
+  			<div id ="fotoPlaats">
   		 <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
   	</div>
-  <div id="locatiePlaats">
-  		 <p id="locatie"></p>
   	</div>
-  	<div id="toestel">
-  		 <p id="info"></p>
-  	</div>
+  	
+  
+ 
   	</div>
   <footer>
 	 <ul id="tab-bar">
