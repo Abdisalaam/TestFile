@@ -33,7 +33,7 @@ for(var i=0;i< myArray.length;i++)
        
     }
     function toestelInfo() {
-    var element = document.getElementById('info');
+    var element = document.getElementById('inhoud');
 
     element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
                         'Device PhoneGap: ' + device.phonegap + '<br />' + 
@@ -43,7 +43,7 @@ for(var i=0;i< myArray.length;i++)
 }
     function bijSucces(imageData) {
 
-      var smallImage = document.getElementById('smallImage');
+      var smallImage = document.getElementById('inhoud');
 
       smallImage.style.display = 'block';
       smallImage.src = "data:image/jpeg;base64," + imageData;
@@ -67,7 +67,7 @@ for(var i=0;i< myArray.length;i++)
             }
     function success(position) {
 			
-                var element = document.getElementById('locatie');
+                var element = document.getElementById('inhoud');
                 element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
                 'Longitude: '           + position.coords.longitude             + '<br />' +
                 'Altitude: '            + position.coords.altitude              + '<br />' +
