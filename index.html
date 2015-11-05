@@ -18,12 +18,12 @@
     function onDeviceReady() {
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
-         var myArray = [123, 15, 187, 32];
+         var myArray = ['Planning', 'DCM', 'Klanten', 'History'];
   var html = '<ul>';
 
 for(var i=0;i< myArray.length;i++)
 {
-  html += '<li id='+ i +'>' + '<a href="#" onClick="toonIndex('+ i +')">'+ 'Dit is test'+ i + ' waarde is' + myArray[i] +' </li> </a>';
+  html += '<li id='+ i +'>' + '<a href="#" onClick="toonIndex('+ i +')">'+ ' Dit is input '+ i + ' Geselecteerde is :' + myArray[i] +' </li> </a>';
 
 }
   html += "</ul>";
